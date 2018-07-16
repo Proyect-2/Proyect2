@@ -93,8 +93,4 @@ app.use('/auth', authRoutes);
 const profileRouter = require('./routes/profile');
 app.use('/profile', profileRouter);
       
-
-const newsRoutes = require("./routes/posts");
-app.use("/news", newsRoutes);
-
 module.exports = app;

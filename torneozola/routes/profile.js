@@ -16,6 +16,4 @@ profileRouter.get("/userProfile", (req, res, next) => {
     })
    });
 
-   
-
    module.exports = profileRouter;

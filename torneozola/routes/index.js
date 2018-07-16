@@ -2,15 +2,27 @@ const express = require('express');
 const router = express.Router();
 const User = require("../models/User");
 const axios = require("axios");
+const Post = require("../models/Post");
 /* GET home page */
 router.get('/', (req, res, next) => {
     if (req.session.passport != undefined) {
         const user = req.session.passport.user;
         User.findOne({ _id: user }).then((user) => {
-            console.log(user);
+            // console.log(user);
             axios.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=70c3368bcec74804aaa27e1e7ee7d8c6").then((post) =>{
-    console.log(user);
-    console.log(post.data.articles);
+    // console.log(user);
+    // console.log(post.data.articles);
+
+    Post.collection.drop();
+    post.data.articles.forEach(post => {
+        Post.create({
+            title:post.title,
+            description: post.description,
+            img: post.urlToImage,   
+            date: post.publishedAt,
+            link: post.url
+        });
+        });        
     res.render("index", { articles:post.data.articles, user});
     }).catch(err => console.log(err));
         });
@@ -18,6 +30,7 @@ router.get('/', (req, res, next) => {
         res.render("auth/signup");
     }
 });
+
 
     
 module.exports = router;

@@ -7,11 +7,11 @@ const newSchema = Schema({
     img: String,
     date:  String,
     link: String,
-    threads: [commentSchema.Types.ObjectId]
+    //threads: [commentSchema.Types.ObjectId]
 
 } , {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
   });
 
-const User = mongoose.model('User', newSchema);
-module.exports = User;
+const Post = mongoose.model('Post', newSchema);
+module.exports = Post;
