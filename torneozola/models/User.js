@@ -5,10 +5,11 @@ const userSchema = new Schema({
   username: String,
   password: String,
   description:{type: String, default:""},
-  age:Number,
-  gender:{type:String, enum:["Mujer","Hombre"], default:""},
+  age:Date,
+  gender:{type:String, enum:["Man","Woman",""], default:""},
   status:{type:String, default:""},
-  news: [newSchema.Types.ObjectId]
+  news: [{type: Schema.Types.ObjectId, ref: 'Post'}],
+  profilePhoto:""
 }, {
   timestamps: {
     createdAt: 'created_at',
