@@ -7,7 +7,8 @@ const userSchema = new Schema({
   description:{type: String, default:""},
   age:Number,
   gender:{type:String, enum:["Mujer","Hombre"], default:""},
-  status:{type:String, default:""}
+  status:{type:String, default:""},
+  news: [newSchema.Types.ObjectId]
 }, {
   timestamps: {
     createdAt: 'created_at',
