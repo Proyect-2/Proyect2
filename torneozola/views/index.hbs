@@ -1,14 +1,22 @@
 
 {{#if  user}}
   <p> Hello, {{user.username }}. Age: {{user.age}} </p>
+  {{#each articles}}
+<br>
+<br>
+<img src="{{this.urlToImage}}" alt="">
+{{this.title}}
+
+{{/each}}
+  
 {{/if}}
+
 
 
 <nav>
   <ul>
     {{#if user }}
      <li> <a href="/profile/userProfile"> Profile </a> </li>
-      <li> <a href="/dashboard"> See Dashboard </a> </li>
       <li> <a href="/auth/logout"> Log Out </a> </li>
     {{else}}
       <li> <a href="/auth/signup"> Sign Up </a> </li>
