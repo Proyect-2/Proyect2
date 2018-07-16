@@ -46,9 +46,10 @@ authRoutes.post("/signup", (req, res, next) => {
       password: hashPass,
       age:age
     });
-    console.log(process.env.DBURL)
+    console.log(newUser)
     newUser.save((err) => {
       if (err) {
+        console.log(err)
         res.render("auth/signup", { message: "Something went wrong" });
       } else {
         res.redirect("/");

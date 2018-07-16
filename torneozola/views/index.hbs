@@ -1,11 +1,12 @@
 
-{{#if isUserLoggedIn }}
-  <p> Hello, {{ currentUserInfo.username }}. Age: {{currentUserInfo.age}} </p>
+{{#if  user}}
+  <p> Hello, {{user.username }}. Age: {{user.age}} </p>
 {{/if}}
+
 
 <nav>
   <ul>
-    {{#if isUserLoggedIn }}
+    {{#if user }}
      <li> <a href="/profile/userProfile"> Profile </a> </li>
       <li> <a href="/dashboard"> See Dashboard </a> </li>
       <li> <a href="/auth/logout"> Log Out </a> </li>

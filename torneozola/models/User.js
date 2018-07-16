@@ -5,8 +5,8 @@ const userSchema = new Schema({
   username: String,
   password: String,
   description:{type: String, default:""},
-  age:Number,
-  gender:{type:String, enum:["Mujer","Hombre"], default:""},
+  age:Date,
+  gender:{type:String, enum:["Mujer","Hombre",""], default:""},
   status:{type:String, default:""}
 }, {
   timestamps: {

@@ -57,8 +57,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   } else {
       return options.fn(this);
   }
-});
-  
+});  
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
@@ -73,6 +72,17 @@ app.use(session({
 }))
 app.use(flash());
 require('./passport')(app);
+
+app.use((req, res, next) => {
+  if (req.session.currentUser) {
+    res.locals.currentUserInfo = req.session.currentUser;
+    res.locals.isUserLoggedIn = true;
+  } else {
+    res.locals.isUserLoggedIn = false;
+  }
+
+  next();
+});
     
 const index = require('./routes/index');
 app.use('/', index);

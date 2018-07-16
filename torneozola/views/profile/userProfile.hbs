@@ -34,7 +34,7 @@
     <div class="span3 well">
         <center>
         <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="https://static.vix.com/es/sites/default/files/styles/large/public/btg/universos-2.jpg?itok=IpTWZVlD" name="aboutme" width="140" height="140" class="img-circle"></a>
-        <h3>{{ currentUserInfo.username }}</h3>
+        <h3>{{ user.username }}</h3>
         <em>Click my face for more</em>
 		</center>
     </div>
@@ -44,22 +44,22 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title" id="myModalLabel">More About {{ currentUserInfo.username }}</h4>
+                    <h4 class="modal-title" id="myModalLabel">More About {{ user.username }}</h4>
                     </div>
                 <div class="modal-body">
                     <center>
                     <img src="https://static.vix.com/es/sites/default/files/styles/large/public/btg/universos-2.jpg?itok=IpTWZVlD" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                    <h3 class="media-heading">{{ currentUserInfo.username }}</h3>
-                    <p class="text-left"><strong>Age:  </strong> {{ currentUserInfo.age }}</p>
+                    <h3 class="media-heading">{{ user.username }}</h3>
+                    <p class="text-left"><strong>Age:  </strong> {{ user.age }}</p>
                         <hr>
-                         <p class="text-left"><strong>Gender:  </strong> {{ currentUserInfo.gender }}</p>
+                         <p class="text-left"><strong>Gender:  </strong> {{ user.gender }}</p>
                         <hr>
-                         <p class="text-left"><strong>Status:  </strong> {{ currentUserInfo.status }}</p>
+                         <p class="text-left"><strong>Status:  </strong> {{ user.status }}</p>
                     </center>
                     <hr>
                     <center>
                     <p class="text-left"><strong>Bio: </strong><br>
-                        {{currentUserInfo.description}}</p>
+                        {{user.description}}</p>
                     <br>
                     </center>
                 </div>
