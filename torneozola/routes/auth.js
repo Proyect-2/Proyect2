@@ -29,13 +29,11 @@ authRoutes.post("/signup", (req, res, next) => {
   const age = req.body.age;
   if (username === "" || password === "" || age<18) {
     res.render("auth/signup", { message: "Indicate username and password" });
-    return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
       res.render("auth/signup", { message: "The username already exists" });
-      return;
     }
 
     const salt = bcrypt.genSaltSync(bcryptSalt);

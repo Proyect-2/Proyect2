@@ -6,9 +6,10 @@ const userSchema = new Schema({
   password: String,
   description:{type: String, default:""},
   age:Date,
-  gender:{type:String, enum:["Mujer","Hombre",''], default:""},
+  gender:{type:String, enum:["Man","Woman",""], default:""},
   status:{type:String, default:""},
-  news: [{type:Schema.Types.ObjectId, ref: "Post"}]
+  news: [{type: Schema.Types.ObjectId, ref: 'Post'}],
+  profilePhoto:""
 }, {
   timestamps: {
     createdAt: 'created_at',
