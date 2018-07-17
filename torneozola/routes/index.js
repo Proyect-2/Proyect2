@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
         console.log(user);
             axios.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=70c3368bcec74804aaa27e1e7ee7d8c6").then((post) =>{
     // console.log(user);
-    // console.log(post.data.articles);
+    //console.log(post.data.articles);
 
                 //Post.collection.drop();
                 post.data.articles.forEach(post => {
@@ -44,6 +44,7 @@ router.get("/articles/:id", (req,res) =>{
  const userId = req.session.passport.user;
 
  User.findByIdAndUpdate(userId,{$push:{news:id}},(err,doc)=>{
+
      if(err)console.log(err);
      res.redirect('/');
  });

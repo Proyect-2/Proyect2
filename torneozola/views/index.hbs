@@ -1,19 +1,24 @@
-<nav>
-  <ul>
+  <ul class="ulinks">
       <li> <a href="/auth/signup"> Sign Up </a> </li>
       <li> <a href="/auth/login"> Log In </a> </li>
   </ul>
-</nav>
 {{#if  user}}
-  <p> Hello, {{user.username }}. Age: {{user.age}} </p>
+  <p> Hello, {{user.username }}. Age: {{user.age}} </p>  
   {{#each articles}}
+   <div data-aos="zoom-in">
   {{#if this.img}}
   <img src="{{this.img}}" width="300" height="200" alt="imgURL">
   <a href="/articles/{{this._id}}">Save News</a>
 <br>
 <br>
 {{this.title}}
+</div>
 {{/if}}
 {{/each}}
+{{ealse}}
+<section class="landingPage">
+  <div class="landing-text">
+<h1>Be part of it.</h1>
+  </div>
+</section>
 {{/if}}
-
