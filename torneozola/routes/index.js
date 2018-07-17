@@ -5,17 +5,15 @@ const axios = require("axios");
 const Post = require("../models/Post");
 const moment=require("moment")
 /* GET home page */
+let a=0;
+
 router.get('/', (req, res, next) => {
+    a=0;
     if (req.session.passport != undefined) {
         const user = req.session.passport.user;
      const date = moment(Date.now()).format('YYYY-MM-DD')
         User.findOneAndUpdate({ _id: user },{"lastLogIn": date}).then(user => {
-        console.log(user);
             axios.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=70c3368bcec74804aaa27e1e7ee7d8c6").then((post) =>{
-    // console.log(user);
-    // console.log(post.data.articles);
-
-                //Post.collection.drop();
                 post.data.articles.forEach(post => {
                     Post.create({
                         title: post.title,
@@ -25,19 +23,24 @@ router.get('/', (req, res, next) => {
                         link: post.url
                     });
                 });
-                Post.find({}, function (err, articles) {
-                    if (err){
-                        console.log(err)
-                    }
-                    // console.log(articles);
+                Post.find({}).limit(10).then((articles)=>{
                     res.render("index", { articles, user });
-                });
+                })
             }).catch(err => console.log(err));
         });
     } else {
         res.render("auth/signup");
     }
 });
+
+router.get("/news",(req, res, next) => {
+                Post.find({}).skip(a+10).limit(10).then((articles)=>{
+                    a+=10;
+                    console.log(a)
+                    res.render("index", { articles, user:true});
+                })
+            })
+
 
 router.get("/articles/:id", (req,res) =>{
  const id = req.params.id;

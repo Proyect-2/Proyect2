@@ -1,11 +1,5 @@
-<nav>
-  <ul>
-      <li> <a href="/auth/signup"> Sign Up </a> </li>
-      <li> <a href="/auth/login"> Log In </a> </li>
-  </ul>
-</nav>
+
 {{#if  user}}
-  <p> Hello, {{user.username }}. Age: {{user.age}} </p>
   {{#each articles}}
   {{#if this.img}}
   <img src="{{this.img}}" width="300" height="200" alt="imgURL">
@@ -16,4 +10,6 @@
 {{/if}}
 {{/each}}
 {{/if}}
+
+<div class="mensaje"></div>
 
