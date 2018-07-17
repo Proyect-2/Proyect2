@@ -2,6 +2,7 @@ const express = require('express');
 const profileRouter  = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const uploadCloud = require('../config/cloudinary.js');
 const bcryptSalt = 10;
 
 profileRouter.get("/userProfile", (req, res, next) => {
@@ -18,7 +19,7 @@ profileRouter.get("/userProfile", (req, res, next) => {
     })
    });
 
-   profileRouter.post("/edit",(req,res,next) =>{
+   profileRouter.post("/edit",uploadCloud.single('photo'),(req,res,next) =>{
     const user = req.user;
     const {username,description,gender,status,password,passconfirm}=req.body;
     console.log(password)
