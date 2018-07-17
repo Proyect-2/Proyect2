@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  console.log('entra')
+
   function cargardatos() {
     $.get("/news",
       function (data) {
@@ -11,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   $(window).scroll(function () {
     if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+      console.log('fin')
       cargardatos()
     }
   });

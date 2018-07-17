@@ -1,3 +1,7 @@
+html{
+  height: 250vh;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -14,3 +18,25 @@ a {
 .users-list{
   margin-left:10px;
 }
+
+//@media (min-width:1025px) {}  
+
+  .landingPage {
+    background-color: rgb(23, 153, 228);
+    height: 100vh;
+  }
+
+  h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;  
+  }
+
+
+
+
+
+
+
+

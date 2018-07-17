@@ -47,6 +47,7 @@ router.get("/articles/:id", (req,res) =>{
  const userId = req.session.passport.user;
 
  User.findByIdAndUpdate(userId,{$push:{news:id}},(err,doc)=>{
+
      if(err)console.log(err);
      res.redirect('/');
  });
