@@ -1,0 +1,37 @@
+
+
+<div class="container users-list">
+	<div class="row">
+        <div class="panel panel-default user_panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">User List</h3>
+            </div>
+            <div class="panel-body">
+            {{#each users}}
+				<div class="table-container">
+                    <table class="table-users table" border="0">
+                        <tbody>
+                            <tr>
+                                <td width="10" >
+                                      <img class="pull-left img-circle nav-user-photo" width="50" src="{{this.profilePhoto}}" />  
+                                    <i class="fa fa-2x fa-user fw"></i>
+                                </td>
+                                <td>
+                                     {{this.username}}<br><i class="fa fa-envelope"></i>
+                                </td>
+                                <td>
+                                    {{this.status}}
+                                </td>
+                                <td align="center">
+                                   {{this.lastLogIn}}<br><small class="text-muted">{{#list this.lastLogIn}}{{/list}}</small>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {{/each}}
+            </div>
+        </div>
+
+	</div>
+</div>
