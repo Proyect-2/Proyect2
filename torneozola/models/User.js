@@ -9,7 +9,8 @@ const userSchema = new Schema({
   gender:{type:String, enum:["Man","Woman",""], default:""},
   status:{type:String, default:""},
   news: [{type: Schema.Types.ObjectId, ref: 'Post'}],
-  profilePhoto:""
+  profilePhoto:{type:String,default:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png"},
+  lastLogIn:{type:String,default:""}
 }, {
   timestamps: {
     createdAt: 'created_at',
