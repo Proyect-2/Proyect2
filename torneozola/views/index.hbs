@@ -12,12 +12,13 @@
 {{#if  user}}
   <p> Hello, {{user.username }}. Age: {{user.age}} </p>
   {{#each articles}}
-<br>
-<br>
-<img src="{{this.urlToImage}}" alt="imgURL">
+  {{#if this.img}}
+  <img src="{{this.img}}" width="300" height="200" alt="imgURL">
+  <a href="/articles/{{this._id}}">Save News</a>
 <br>
 <br>
 {{this.title}}
+{{/if}}
 {{/each}}
 {{/if}}
 

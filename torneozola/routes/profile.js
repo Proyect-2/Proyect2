@@ -35,11 +35,9 @@ profileRouter.get("/userProfile", (req, res, next) => {
     else{
     User.findOneAndUpdate({_id:user},{"username":username,"description":description,"gender":gender,"status":status}).then(()=>{
       res.redirect("/profile/userProfile");
-    })
+    });
     }
    });
 
-
    
-
    module.exports = profileRouter;
