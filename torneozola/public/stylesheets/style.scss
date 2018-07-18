@@ -1,5 +1,5 @@
 html{
-  height: 250vh;
+  height: 200vh;
 }
 
 body {
@@ -22,7 +22,6 @@ a {
 //@media (min-width:1025px) {}  
 
   .landingPage {
-    background-color: rgb(23, 153, 228);
     height: 100vh;
   }
 
@@ -32,7 +31,35 @@ a {
     justify-content: center;
     padding-top: 2em;  
   }
+  
+  .NEWS {
+    margin-top: 8em;
+    padding-left: 10em;
+    padding-right: 10em;
+  }
 
+  .art-links {
+    display: flex;
+    justify-content: center;
+  }
+
+  h5 {
+    font-weight: bold;
+    text-align: center;
+    
+  }
+
+  .ulinks {
+    padding-top: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    list-style: none;
+  }
+
+  .slink {
+    margin-right: 1em;
+  }
 
 
 
