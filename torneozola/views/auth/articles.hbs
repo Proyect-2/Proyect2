@@ -1,6 +1,30 @@
-{{#if user}} 
-{{#each articles}} {{#if this.img}}
+{{#if user}} {{#each articles}}
+
 <section class="NEWS">
+    <div class="breakingNews">
+        <div class="card mb-3">
+            <img class="card-img-top" src="{{this.img}}" width="100px" height="400px" alt="imgURL">
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">
+                    <small class="text-muted"></small>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <section class="columns">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="..." width="100px" height="100px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted"></small>
+                </div>
+
+            </div><section class="NEWS">
   <div data-aos="zoom-in">
     <div class="breakingNews">
       <div class="card mb-3">
@@ -50,24 +74,28 @@
     </section>
   </div>
 </section>
+            <div class="card">
+                <img class="card-img-top" src="..." width="100px" height="100px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted"></small>
+                </div>
 
-{{/if}} {{/each}} {{else}}
-<div class="nav2">
-<ul class="ulinks">
-  <li class="slink">
-    <a href="/auth/signup"> Sign Up </a>
-  </li>
-  <li>
-    <a href="/auth/login"> Log In </a>
-  </li>
-</ul>
-</div>
-<div class="landing-text">
-    <h1>Forward with the People.</h1>
-  </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="..." width="100px" height="100px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted"></small>
+                </div>
 
-<section class="landingPage">
+            </div>
+        </div>
+    </section>
+
 </section>
-{{/if}}
-
-<div class="mensaje"></div>
+{{//each}} {{/if}}

@@ -3,17 +3,20 @@ const router = express.Router();
 const User = require("../models/User");
 const axios = require("axios");
 const Post = require("../models/Post");
-const moment=require("moment")
+const moment=require("moment");
 /* GET home page */
 let a=0;
 
-router.get('/', (req, res, next) => {
+router.get('/:le', (req, res, next) => {
     a=0;
+    const le = req.params.le;
+    console.log('entra')
     if (req.session.passport != undefined) {
         const user = req.session.passport.user;
      const date = moment(Date.now()).format('YYYY-MM-DD')
         User.findOneAndUpdate({ _id: user },{"lastLogIn": date}).then(user => {
-            axios.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=70c3368bcec74804aaa27e1e7ee7d8c6").then((post) =>{
+            axios.get(`https://newsapi.org/v2/top-headlines?country=${le}&apiKey=70c3368bcec74804aaa27e1e7ee7d8c6`).then((post) =>{
+                console.log(post.data.articles)
                 post.data.articles.forEach(post => {
                     Post.create({
                         title: post.title,
@@ -23,7 +26,7 @@ router.get('/', (req, res, next) => {
                         link: post.url
                     });
                 });
-                Post.find({}).limit(10).then((articles)=>{
+                Post.find({}).sort({updated_at:-1}).limit(10).then((articles)=>{
                     res.render("index", { articles, user:true });
                 })
             }).catch(err => console.log(err));
@@ -32,6 +35,7 @@ router.get('/', (req, res, next) => {
         res.render("auth/signup");
     }
 });
+
 
 router.get("/news",(req, res, next) => {
                 Post.find({}).skip(a+10).limit(10).then((articles)=>{
@@ -60,3 +64,6 @@ router.get('/explore',(req, res, next) => {
 
 
 module.exports = router;
+
+/* 
+"/:category", "/:source" */
