@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
                     });
                 });
                 Post.find({}).limit(10).then((articles)=>{
-                    res.render("index", { articles, user });
+                    res.render("index", { articles, user:true });
                 })
             }).catch(err => console.log(err));
         });
@@ -43,15 +43,15 @@ router.get("/news",(req, res, next) => {
 
 
 router.get("/articles/:id", (req,res) =>{
- const id = req.params.id;
+ const article = req.params.id;
  const userId = req.session.passport.user;
-
- User.findByIdAndUpdate(userId,{$push:{news:id}},(err,doc)=>{
-
-     if(err)console.log(err);
-     res.redirect('/');
- });
+ console.log("article")
+ User.findByIdAndUpdate(userId,{$push:{news:article}}).then((user)=>{
+    console.log(user)
+    res.render('/');
+ })
 });
+
 router.get('/explore',(req, res, next) => {
     User.find({}).then(users =>{
         res.render('explore',{users});

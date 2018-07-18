@@ -1,10 +1,10 @@
 
 {{#if  user}}
   {{#each articles}}
-   <div data-aos="zoom-in">
+   {{!-- <div data-aos="zoom-in"> --}}
   {{#if this.img}}
   <img src="{{this.img}}" width="300" height="200" alt="imgURL">
-  <a href="/articles/{{this._id}}">Save News</a>
+  <a href="{{this.id}}" class="vistaprevia">Save News</a>
 <br>
 <br>
 {{this.title}}
@@ -12,11 +12,11 @@
 {{/if}}
 {{/each}}
 {{else}}
-<section class="landingPage">
+{{!-- <section class="landingPage">
   <div class="landing-text">
 <h1>Be part of it.</h1>
   </div>
-</section>
+</section> --}}
 {{/if}}
 
 <div class="mensaje"></div>
