@@ -9,7 +9,7 @@
 				<div class="table-container">
                     <table class="table-users table" border="0">
                         <tbody>
-                            <tr>
+                            <tr class="mrgin">
                                 <td width="10" >
                                       <img class="pull-left img-circle nav-user-photo" width="50" src="{{this.profilePhoto}}" />  
                                     <i class="fa fa-2x fa-user fw"></i>
@@ -22,6 +22,9 @@
                                 </td>
                                 <td align="center">
                                    {{this.lastLogIn}}<br><small class="text-muted">{{#list this.lastLogIn}}{{/list}}</small>
+                                </td>
+                                <td align="center button-right">
+                                <a class="btn primary-btn" href="/profile/userProfile/{{this._id}}">See</a>
                                 </td>
                             </tr>
                         </tbody>
