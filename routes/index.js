@@ -7,6 +7,9 @@ const moment=require("moment");
 /* GET home page */
 let a=0;
 
+router.get("/",(req, res, next) => {
+    res.render("/");
+})
 
 router.post('/news/:id', (req, res, next) => {
     const userId = req.session.passport.user;
