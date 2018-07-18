@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
 const commentSchema = Schema({
     description: String,
     savedNews: String,
