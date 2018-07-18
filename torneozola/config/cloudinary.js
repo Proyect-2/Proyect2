@@ -1,6 +1,8 @@
-const cloudinary = require('cloudinary');
-const cloudinaryStorage = require('multer-storage-cloudinary');
-const multer = require('multer');
+require("dotenv").config();
+
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
+const multer = require("multer");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
@@ -10,13 +12,13 @@ cloudinary.config({
 
 var storage = cloudinaryStorage({
   cloudinary: cloudinary,
-  folder: 'Proyect2-profile-img', // The name of the folder in cloudinary
-  allowedFormats: ['jpg', 'png'],
-  filename: function (req, file, cb) {
-    cb(null, file.originalname); // The file on cloudinary would have the same name as the original file name
+  folder: "IronHack",
+  allowedFormats: ["jpg", "png"],
+  filename: function(req, file, cb) {
+    photo = new Date().getTime();
+    cb(undefined, photo);
   }
 });
 
-const uploadCloud = multer({ storage: storage });
-
+const uploadCloud = multer({ storage: storage })
 module.exports = uploadCloud;

@@ -15,6 +15,8 @@ router.get('/', (req, res, next) => {
         User.findOneAndUpdate({ _id: user },{"lastLogIn": date}).then(user => {
             axios.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=70c3368bcec74804aaa27e1e7ee7d8c6").then((post) =>{
                 post.data.articles.forEach(post => {
+                    if(Post.find({title:post.title})){}
+                   else{
                     Post.create({
                         title: post.title,
                         description: post.description,
@@ -22,8 +24,9 @@ router.get('/', (req, res, next) => {
                         date: post.publishedAt,
                         link: post.url
                     });
+                }
                 });
-                Post.find({}).limit(10).then((articles)=>{
+                Post.find({}).sort({updated_at:-1}).limit(10).then((articles)=>{
                     res.render("index", { articles, user:true });
                 })
             }).catch(err => console.log(err));
@@ -32,6 +35,14 @@ router.get('/', (req, res, next) => {
         res.render("auth/signup");
     }
 });
+
+router.post('/news/:id', (req, res, next) => {
+    const userId = req.session.passport.user;
+    const articleId = req.params.id
+ User.findByIdAndUpdate(userId,{$push:{news:articleId}}).then(()=>{
+    res.redirect('/');
+ })
+})
 
 router.get("/news",(req, res, next) => {
                 Post.find({}).skip(a+10).limit(10).then((articles)=>{
@@ -42,15 +53,14 @@ router.get("/news",(req, res, next) => {
             })
 
 
-router.get("/articles/:id", (req,res) =>{
- const article = req.params.id;
- const userId = req.session.passport.user;
- console.log("article")
- User.findByIdAndUpdate(userId,{$push:{news:article}}).then((user)=>{
-    console.log(user)
-    res.render('/');
- })
-});
+// router.get("/articles/:id", (req,res) =>{
+//  const articleId = req.params.id;
+//  const userId = req.session.passport.user;
+//  console.log("article")
+//  User.findByIdAndUpdate(userId,{$push:{news:articleId}}).then(()=>{
+//     res.redirect('/');
+//  })
+// });
 
 router.get('/explore',(req, res, next) => {
     User.find({}).then(users =>{

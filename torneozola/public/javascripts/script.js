@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  console.log('entra')
-
   function cargardatos() {
     $.get("/news",
       function (data) {
@@ -13,10 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   $(window).scroll(function () {
     if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-      console.log('fin')
       cargardatos()
     }
   });
 
-
+    $("body").on("click", ".button-save-news", e => {
+      var path = $(e.currentTarget)
+        .prop("value");
+      $.ajax({
+        contentType: "application/String",
+        dataType: "String",
+        type: "POST",
+        url: `/news/${path}`,
+        data: JSON.stringify({ "body": "path" }),
+      });
+    });
 }, false);
+
+

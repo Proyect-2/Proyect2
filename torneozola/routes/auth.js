@@ -44,7 +44,6 @@ authRoutes.post("/signup", (req, res, next) => {
       password: hashPass,
       age:age
     });
-    console.log(newUser)
     newUser.save((err) => {
       if (err) {
         console.log(err)
