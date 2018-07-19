@@ -1,19 +1,6 @@
 {{#if user}} 
 
-<div class="categories">
-  <ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link" href="#">Health</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Business</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Technology</a>
-  </li>
-</ul>
-</div>
-<hr>
+
 {{#each articles}} {{#if this.img}}
 <section class="NEWS">
   <div data-aos="zoom-in">
@@ -29,41 +16,6 @@
         <button class="button-save-news art-links" value="{{this._id}}">Save News</button>
       </div>
     </div>
-    <section class="columns">
-      <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src="..."  width="100px" height="100px"alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{this.title}}</h5>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted"></small>
-          </div>
-          <a class="btn btn-primary art-links"value="{{this._id}}">Save News</a>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="..." width="100px" height="100px" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{this.title}}</h5>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted"></small>
-          </div>
-          <a class="art-links" href="/articles/{{this._id}}">Save News</a>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="..." width="100px" height="100px" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{this.title}}</h5>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted"></small>
-          </div>
-          <a class="art-links" href="/articles/{{this._id}}">Save News</a>
-        </div>
-      </div>
-    </section>
-  </div>
 </section>
 
 {{/if}} {{/each}} {{else}}
