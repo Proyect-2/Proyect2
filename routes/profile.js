@@ -9,6 +9,9 @@ const bcryptSalt = 10;
 profileRouter.get("/userProfile", (req, res, next) => {
   const user = req.user;
   const news = [];
+  if(!user){
+    res.render("auth/private")
+  }
   User.findOne({ _id: user }).then((user) => {
     user.news.map((id) => {
       Post.findById({ _id: id }).then((article) => {
@@ -23,6 +26,9 @@ profileRouter.get("/userProfile", (req, res, next) => {
 
 profileRouter.get("/edit", (req, res, next) => {
   const user = req.user;
+  if(!user){
+    res.render("auth/private")
+  }
   User.findOne({ _id: user }).then((user) => {
     res.render("profile/edit", { user });
   })
@@ -31,7 +37,6 @@ profileRouter.get("/edit", (req, res, next) => {
 profileRouter.post("/edit", uploadCloud.single('photo'), (req, res, next) => {
   const user = req.user;
   let img = req.file;
-  console.log(req.body.photo, '<--------')
   let image = {};
   if (img == undefined) {
     image = req.body.photo;

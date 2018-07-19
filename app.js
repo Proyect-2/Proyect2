@@ -86,8 +86,7 @@ app.use((req, res, next) => {
 });
     
 hbs.registerHelper('list', function(items) {
-console.log(moment().startOf(items).fromNow());
-  return  moment(items, "YYYY/MM/DD").fromNow();;
+  return  moment(items, "YYYY/MM/DD").fromNow();
 
 });
 

@@ -4,7 +4,7 @@
   <div data-aos="zoom-in">
     <div class="breakingNews">
       <div class="card mb-3">
-        <img class="card-img-top" src="{{this.img}}" width="100px" height="400px" alt="imgURL">
+        <a  href="{{link}}" target="_blank"><img class="card-img-top" src="{{this.img}}" width="100px" height="400px" alt="imgURL"></a>
         <div class="card-body">
           <h5 class="card-title">{{this.title}}</h5>
           <p class="card-text">
@@ -24,7 +24,7 @@
           <div class="card-footer">
             <small class="text-muted"></small>
           </div>
-          <a class="art-links" href="/articles/{{this._id}}">Save News</a>
+          <a class="btn btn-primary art-links"value="{{this._id}}">Save News</a>
         </div>
         <div class="card">
           <img class="card-img-top" src="..." width="100px" height="100px" alt="Card image cap">

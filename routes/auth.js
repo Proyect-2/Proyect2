@@ -14,7 +14,7 @@ authRoutes.get("/login", (req, res, next) => {
 
 authRoutes.post("/login", passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/auth/login",
+  failureRedirect: "/auth/private",
   failureFlash: true,
   passReqToCallback: true
 }));
@@ -23,17 +23,23 @@ authRoutes.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
+authRoutes.get("/private",(req, res, next) => {
+  res.render("auth/private");
+});
+
 authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const age = req.body.age;
+  const email = req.body.email
+  console.log("insidee")
   if (username === "" || password === "" || age<18) {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.render("/auth/private", { message: "Indicate username and password" });
   }
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("/auth/private", { message: "The username already exists" });
     }
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
@@ -42,14 +48,15 @@ authRoutes.post("/signup", (req, res, next) => {
     const newUser = new User({
       username,
       password: hashPass,
-      age:age
+      age:age,
+      email:email
     });
     newUser.save((err) => {
       if (err) {
         console.log(err)
-        res.render("auth/signup", { message: "Something went wrong" });
+        res.render("/auth/private", { message: "Something went wrong" });
       } else {
-        res.redirect("/");
+        res.redirect("/private");
       }
     });
   });
@@ -57,7 +64,7 @@ authRoutes.post("/signup", (req, res, next) => {
 
 authRoutes.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/");
+  res.redirect("/:le");
 });
 
 module.exports = authRoutes;

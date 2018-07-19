@@ -5,6 +5,7 @@ const userSchema = new Schema({
   password: String,
   description:{type: String, default:""},
   age:Date,
+  email:{type:String,required:true},
   gender:{type:String, enum:["Man","Woman",""], default:""},
   status:{type:String, default:""},
   news: Array,
