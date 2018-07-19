@@ -50,8 +50,8 @@ router.get("/news",(req, res, next) => {
                     axios.get(`https://newsapi.org/v2/top-headlines?country=${le}&apiKey=70c3368bcec74804aaa27e1e7ee7d8c6`).then((post) =>{
                         console.log(post.data.articles)
                         post.data.articles.forEach(post => {
-                            /* if(Post.find({title:post.title})){}
-                           else{ */
+                        //     if(Post.find({title:post.title})){}
+                        //    else{
                             Post.create({
                                 title: post.title,
                                 description: post.description,
@@ -59,7 +59,7 @@ router.get("/news",(req, res, next) => {
                                 date: post.publishedAt,
                                 link: post.url
                             });
-                        /* } */
+                       // }
                         });
                         Post.find({}).sort({updated_at:-1}).limit(10).then((articles)=>{
                             res.render("index", { articles, user:true });
