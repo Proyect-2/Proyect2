@@ -1,0 +1,81 @@
+html{
+  height: 200vh;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.margin{
+  margin-top:100px;
+}
+
+.users-list{
+  margin-left:10px;
+}
+
+//@media (min-width:1025px) {}  
+
+  .landingPage {
+    height: 100vh;
+  }
+
+  h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;  
+  }
+  
+  .NEWS {
+    margin-top: 10em;
+    padding-left: 10em;
+    padding-right: 10em;
+  }
+
+  .art-links {
+    display: flex;
+    justify-content: center;
+  }
+
+  h5 {
+    font-weight: bold;
+    text-align: center;
+    
+  }
+
+  .ulinks {
+    padding-top: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    list-style: none;
+  }
+
+  .slink {
+    margin-right: 1em;
+  }
+
+.card-group{
+  margin-top:100px;
+}
+
+.button-right{
+margin-left:90%;
+}
+
+
+.categories {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;  
+}
+
+hr {
+  width: 100%;
+}

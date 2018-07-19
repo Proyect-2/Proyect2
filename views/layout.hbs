@@ -19,7 +19,7 @@
 
 <body>
   <nav class="navbar-space navbar navbar-expand-lg fixed-top navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Kizola</a>
+   <img src="/images/kizola.png" class="navbar-brand" alt="icon">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -51,9 +51,6 @@
             <a class="dropdown-item" href="/auth/logout">Log Out</a>
           </div>
         </li>
-      </ul>
-
-
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
@@ -63,23 +60,27 @@
           <a class="dropdown-item" href="/ru">Russia</a>
           <a class="dropdown-item" href="/it">Italy</a>
           <a class="dropdown-item" href="/gb">UK</a>
+          <a class="dropdown-item" href="/ae">Middle East</a>
         </div>
       </li>
+<<<<<<< HEAD:views/layout.hbs
 
       <form class="form-inline my-2 my-lg-0" type="POST">
+=======
+       </ul>
+      <form class="form-inline my-2 my-lg-0">
+>>>>>>> c46eedf67a36355116bec167d087ae0043789c52:torneozola/views/layout.hbs
         <input class="form-control mr-sm-2" type="search" id = "search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0 search" type="submit">Search</button>
       </form>
     </div>
   </nav>
-
   {{{body}}}
   <script> 
     AOS.init();
   </script>
   <script src='/javascripts/script.js'></script>
 </body>
-
 </html>
 
 
