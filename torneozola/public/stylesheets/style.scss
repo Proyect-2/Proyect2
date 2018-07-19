@@ -33,7 +33,7 @@ a {
   }
   
   .NEWS {
-    margin-top: 8em;
+    margin-top: 10em;
     padding-left: 10em;
     padding-right: 10em;
   }
@@ -70,4 +70,12 @@ margin-left:90%;
 }
 
 
+.categories {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;  
+}
 
+hr {
+  width: 100%;
+}

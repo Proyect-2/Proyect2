@@ -24,7 +24,7 @@ h1 {
   padding-top: 2em; }
 
 .NEWS {
-  margin-top: 8em;
+  margin-top: 10em;
   padding-left: 10em;
   padding-right: 10em; }
 
@@ -51,5 +51,13 @@ h5 {
 
 .button-right {
   margin-left: 90%; }
+
+.categories {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em; }
+
+hr {
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
